@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/createPractice.css">
+    <link rel="stylesheet" href="/js/edit.js">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <form action="/delFinish" method="post">
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Well done!</h4>
+            <p>You will delete this object with id: <span style="color: red;">
+                    <%=result.id%>
+                </span>
+            </p>
+            <div style="display: none;">
+                <input type="text" value="<%=result.id%>" name="id" />
+            </div>
+            <hr>
+            <p class="mb-0">Are you Sure??</p>
+
+            <button type="submit" class="btn btn-warning" style="margin-top: 21px; width: 70px;">Yes</button>
+        </div>
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -19,9 +19,5 @@ viewConfig(app)
 app.use('', rou)
 
 app.listen(port, async () => {
-    const [result, filed] = await connectToMysql.query(
-        `select * from whos`
-    )
-    console.log(result)
     console.log('server is on port: ', port)
 })
