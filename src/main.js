@@ -5,6 +5,8 @@ const port = 3307
 
 const path = require('path')
 
+const connectToMongoose = require('./config/connectToMongoose')
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
@@ -15,9 +17,19 @@ const connectToMysql = require('./config/mysqlConfig')
 
 const viewConfig = require('./config/viewConfig')
 const rou = require('./routes/web')
+const rouApi = require('./routes/api')
 viewConfig(app)
 app.use('', rou)
+app.use('/api', rouApi)
 
-app.listen(port, async () => {
-    console.log('server is on port: ', port)
-})
+    ; (async () => {
+        try {
+            await connectToMongoose();
+            app.listen(port, async () => {
+                console.log('server is on port: ', port)
+            })
+        } catch (error) {
+            console.log("BIG BUG: ", error)
+        }
+    })()
+
