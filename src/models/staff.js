@@ -1,8 +1,5 @@
-const connectToMongoose = require('../config/connectToMongoose')
 const mongoose = require('mongoose')
 const mongoose_delete = require('mongoose-delete')
-
-
 
 const staffSchema = new mongoose.Schema(
     {

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-
+const mongoose_delete = require('mongoose-delete')
 const taskSchema = new mongoose.Schema(
     {
         name: String,
@@ -10,6 +10,8 @@ const taskSchema = new mongoose.Schema(
     },
     { timestamps: true }
 )
+
+taskSchema.plugin(mongoose_delete, { overrideMethods: true })
 
 const task = mongoose.model('task', taskSchema)
 

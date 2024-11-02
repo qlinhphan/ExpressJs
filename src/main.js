@@ -5,6 +5,9 @@ const port = 3307
 
 const path = require('path')
 
+const fileUpload = require('express-fileupload')
+app.use(fileUpload())
+
 const connectToMongoose = require('./config/connectToMongoose')
 
 app.use(express.json())
