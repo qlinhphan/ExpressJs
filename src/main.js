@@ -5,6 +5,8 @@ const port = 3307
 
 const path = require('path')
 
+const { MongoClient } = require('mongodb')
+
 const fileUpload = require('express-fileupload')
 app.use(fileUpload())
 
@@ -28,6 +30,12 @@ app.use('/api', rouApi)
     ; (async () => {
         try {
             await connectToMongoose();
+            // const url = 'mongodb://root:123456@localhost:27017/?authSource=admin'
+            // const client = new MongoClient(url)
+            // await client.connect()
+            // const db = client.db('ext')
+            // const collect = db.collection('staffs')
+            // collect.insertOne({ name: "Trang", age: "21" })
             app.listen(port, async () => {
                 console.log('server is on port: ', port)
             })
